@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LOGIN</title>
+    <title>VENDOR MANAGEMENT SYSTEM - LOGIN</title>
     <link rel="stylesheet" href="/frontend/styles.css">
 </head>
 <body>
