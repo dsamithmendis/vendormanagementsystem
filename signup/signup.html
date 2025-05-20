@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIGNUP</title>
     <link rel="stylesheet" href="frontend/styles.css">
+    <?php include 'connection/connect.php'; ?>
+    <?php include 'verify/verify.php'; ?>
+    <?php include 'includes/header.php'; ?>
 </head>
 
 <body>
@@ -39,7 +42,7 @@
         </div>
         <button type="submit" class="btn btn-primary" name="signup" id="signup">Sign up</button>
         <button type="reset" class="btn btn-danger">Reset</button>
-        <button type="button" class="btn btn-secondary" onclick="window.location.href='index.php'">Back</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">Back</button>
     </form>
     </div>
     
