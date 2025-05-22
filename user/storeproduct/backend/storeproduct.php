@@ -2,8 +2,8 @@
 ob_start();
 session_start();
 
-include "/vendormanagementsystem/connection/connection.php";
-include "/vendormanagementsystem/user/storeproduct/index.html";
+include '/vendormanagementsystem/connection/connection.php';
+include '/vendormanagementsystem/user/storeproduct/index.html';
 
 if (isset($_POST['save'])) {
     $product_name = $_POST['product_name'];
