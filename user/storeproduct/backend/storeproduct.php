@@ -10,6 +10,10 @@ if (!isset($_SESSION["username"])) {
     die("Unauthorized access.");
 }
 
+if (!$connection) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
 if (isset($_POST['save'])) {
     $product_name = $_POST['product_name'];
     $product_price = $_POST['product_price'];
