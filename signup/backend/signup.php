@@ -1,6 +1,6 @@
 <?php
 include '/vendormanagementsystem/connection/connect.php';
-include '/vendormanagementsystem//signup/signup';
+include '/vendormanagementsystem/signup/index.html';
 if (!$connection) {
     die("Database connection failed: " . mysqli_connect_error());
 }
