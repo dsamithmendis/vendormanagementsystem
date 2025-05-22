@@ -4,6 +4,11 @@ session_start();
 
 include '/vendormanagementsystem/connection/connection.php';
 include '/vendormanagementsystem/user/storeproduct/index.html';
+include '/vendormanagementsystem/verify/verifyuser.php';
+
+if (!isset($_SESSION["username"])) {
+    die("Unauthorized access.");
+}
 
 if (isset($_POST['save'])) {
     $product_name = $_POST['product_name'];
