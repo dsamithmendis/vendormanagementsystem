@@ -10,6 +10,10 @@ if (!isset($_SESSION["username"])) {
     die("Unauthorized access.");
 }
 
+if (!$connection) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
 $message = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addok'])) {
