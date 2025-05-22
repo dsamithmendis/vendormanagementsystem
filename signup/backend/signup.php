@@ -1,5 +1,6 @@
 <?php
-include 'connection/connect.php';
+include '/vendormanagementsystem/connection/connect.php';
+include '/vendormanagementsystem//signup/signup';
 if (!$connection) {
     die("Database connection failed: " . mysqli_connect_error());
 }
