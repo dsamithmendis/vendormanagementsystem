@@ -12,7 +12,7 @@ if (!isset($_SESSION["username"])) {
     die("Unauthorized access.");
 }
 
-include '/vendormanagementsystem/user/home/home.html';
+include '/vendormanagementsystem/user/home/home';
 
 ob_end_flush();
 ?>
