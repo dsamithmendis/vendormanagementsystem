@@ -2,17 +2,17 @@
 ob_start();
 session_start();
 
-include 'connect.php';
+include '/vendormanagementsystem/connection/connect.php';
 if (!$connection) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-include 'verifyuser.php';
+include '/vendormanagementsystem/verify/verifyuser.php';
 if (!isset($_SESSION["username"])) {
     die("Unauthorized access.");
 }
 
-include 'home.html';
+include '/vendormanagementsystem/user/home/home.html';
 
 ob_end_flush();
 ?>
