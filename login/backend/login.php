@@ -1,6 +1,9 @@
 <?php
+ob_start();
 session_start();
-include 'connection/connect.php';
+
+include '/vendormanagementsystem/connection/connect.php';
+include '/vendormanagementsystem/login/index';
 
 if (!$connection) {
     die("Database connection failed: " . mysqli_connect_error());
