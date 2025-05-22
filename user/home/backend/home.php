@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 
-include '/vendormanagementsystem/user/home/index';
+include '/vendormanagementsystem/user/home/index.html';
 include '/vendormanagementsystem/connection/connect.php';
 include '/vendormanagementsystem/verify/verifyuser.php';
 
