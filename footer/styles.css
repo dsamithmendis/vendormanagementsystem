@@ -15,19 +15,17 @@ footer {
     justify-content: space-between;
     align-items: center;
     text-align: center;
+    flex-wrap: nowrap;
 }
 
-.footer-left {
+.footer-left,
+.footer-text,
+.social-links {
     flex: 1;
-}
-
-.footer-text {
-    flex: 1;
-    margin: 0;
+    margin: 5px 0;
 }
 
 .social-links {
-    flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -40,4 +38,28 @@ footer {
 
 .social-links a:hover {
     transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-left,
+    .footer-text,
+    .social-links {
+        flex: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .social-links a {
+        margin: 0 10px;
+    }
 }
