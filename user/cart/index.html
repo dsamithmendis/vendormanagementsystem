@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CART | VENDOR MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="frontend/styles.css">
+</head>
+<body>
+
+<?php if (!empty($message)): ?>
+    <div class="message"><?php echo $message; ?></div>
+<?php endif; ?>
+
+<header>
+    <h1>VENDOR MANAGEMENT SYSTEM</h1>
+    <nav>
+        <ul>
+            <li><a href="/vendormanagementsystem/user/home/backend/home.php">HOME</a></li>
+            <li><a href="/vendormanagementsystem/user/buyproduct/backend/buyproduct.php">BUY PRODUCT</a></li>
+            <li><a href="/vendormanagementsystem/user/storeproduct/backend/storeproduct.php">STORE PRODUCT</a></li>
+            <li><a href="/vendormanagementsystem/user/history/backend/history.php">HISTORY</a></li>
+            <li><a href="/vendormanagementsystem/logout.php">LOGOUT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <?php if (!empty($purchase_data)): ?>
+        <form method="POST" class="order-form">
+            <label for="order_date">SELECT ORDERING DATE</label>
+            <input type="date" name="order_date" id="order_date" required>
+            <button type="submit" class="btn btn-primary" name="confirm" id="confirm">Confirm</button>
+        </form>
+
+        <table>
+            <tr>
+                <th>PRODUCT ID</th>
+                <th>BUYER ID</th>
+                <th>SELLER ID</th>
+                <th>PRODUCT NAME</th>
+                <th>PRICE (RS.)</th>
+                <th>ACTION</th>
+            </tr>
+            <?php foreach ($purchase_data as $row): ?>
+                <tr>
+                    <td><?= htmlspecialchars($row['ProductID']) ?></td>
+                    <td><?= htmlspecialchars($BuyerID) ?></td>
+                    <td><?= htmlspecialchars($row['SellerID']) ?></td>
+                    <td><?= htmlspecialchars($row['product_name']) ?></td>
+                    <td><?= htmlspecialchars($row['product_price']) ?></td>
+                    <td>
+                        <form method="POST" style="display:inline;">
+                            <input type="hidden" name="removeok" value="<?= htmlspecialchars($row['ProductID']) ?>">
+                            <button type="submit" class="btn btn-danger" name="remove" id="remove">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <div class="no-records">No records found.</div>
+    <?php endif; ?>
+</main>
+
+<footer>
+    <p>&copy; 2024 OUSL Student: Mr. D.S.Mendis. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
