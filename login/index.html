@@ -1,41 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LOGIN | VENDOR MANAGEMENT SYSTEM</title>
-    <link rel="stylesheet" href="frontend/styles.css">
-</head>
-    
-<body>
+    <link rel="stylesheet" type="text/css" href="../frontend/styles.css" />
+  </head>
 
-<header>
-    <h1>VENDOR MANAGEMENT SYSTEM</h1>
-</header>
+  <body>
+    <header>
+      <h1>VENDOR MANAGEMENT SYSTEM</h1>
+    </header>
 
-<main>
-    <div class="container">
+    <main>
+      <div class="container">
         <h2>LOGIN</h2>
-        <form action="backend/login.php" method="POST">
-            <div class="form-group">
-                <label for="username">USERNAME</label>
-                <input type="text" class="form-control" name="username" id="username" placeholder="Enter Name" required>
-            </div>
-            <div class="form-group">
-                <label for="password">PASSWORD</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" maxlength="8" required>
-            </div>
-            <button type="submit" class="btn btn-primary" name="login" id="login">Log in</button>
-            <button type="reset" class="btn btn-danger">Reset</button>
-            <button type="button" class="btn btn-secondary" onclick="window.location.href='/vendormanagementsystem/index.html'">Back</button>
+        <form
+          action="/vendormanagementsystem/login/backend/login.php"
+          method="POST"
+        >
+          <div class="form-group">
+            <label for="username">USERNAME</label>
+            <input
+              type="text"
+              class="form-control"
+              name="username"
+              id="username"
+              placeholder="Enter Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">PASSWORD</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="password"
+              placeholder="Enter Password"
+              maxlength="8"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary" name="login" id="login">
+            Log in
+          </button>
+          <button type="reset" class="btn btn-danger">Reset</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="window.location.href='/vendormanagementsystem/index.html'"
+          >
+            Back
+          </button>
         </form>
-    </div>
-</main>
+      </div>
+    </main>
 
-<footer>
-    <p>© 2025 All Rights Reserved By Samith Mendis</p>
-</footer>
-
-</body>
+    <footer>
+      <p>© 2025 All Rights Reserved By Samith Mendis</p>
+    </footer>
+  </body>
 </html>

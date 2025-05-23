@@ -65,7 +65,8 @@ table {
     margin-bottom: 120px;
 }
 
-th, td {
+th,
+td {
     padding: 12px 15px;
     border: 1px solid #333;
     text-align: center;
@@ -98,12 +99,22 @@ tr:hover td {
 }
 
 input[type='date'] {
-    width: 100%;
+    width: 95%;
     padding: 8px;
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 4px;
     margin-bottom: 15px;
+}
+
+.order-form {
+    background: white;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
 }
 
 footer {
@@ -113,13 +124,4 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
-}
-
-.order-form {
-    max-width: 300px;
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

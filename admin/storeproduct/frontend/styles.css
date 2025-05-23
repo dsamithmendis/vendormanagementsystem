@@ -6,7 +6,7 @@ body {
     padding: 0;
 }
 
-header {
+header, footer {
     background-color: #333;
     color: white;
     padding: 20px;
@@ -26,12 +26,38 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
     padding: 5px 10px;
-    transition: 0.3s;
 }
 
 nav ul li a:hover {
     opacity: 0.8;
     border-radius: 4px;
+}
+
+.container {
+    background: white;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 .btn {
@@ -44,14 +70,11 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-}
+.btn-primary { background-color: #007bff; color: white; }
+.btn-danger { background-color: #dc3545; color: white; }
+.btn-secondary { background-color: #6c757d; color: white; }
 
-.btn:hover {
-    opacity: 0.8;
-}
+.btn:hover { opacity: 0.8; }
 
 table {
     width: 100%;
@@ -60,8 +83,7 @@ table {
     margin-bottom: 120px;
 }
 
-th,
-td {
+th, td {
     padding: 12px 15px;
     border: 1px solid #333;
     text-align: center;
@@ -81,22 +103,19 @@ tr:hover td {
     background-color: #c8e6c9;
 }
 
-.no-records {
-    margin-top: 20px;
+.message {
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
 }
 
-.message {
-    background-color: #e2f0d9;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 4px;
+.no-records {
+    margin-bottom: 120px;
 }
 
 footer {
-    background-color: #333;
-    color: white;
     padding: 10px;
     position: fixed;
     width: 100%;

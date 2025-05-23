@@ -2,8 +2,8 @@
 ob_start();
 session_start();
 
-include '/vendormanagementsystem/connection/connect.php';
-include '/vendormanagementsystem/login/index.html';
+include '../../connection/connect.php';
+include '../../login/index.html';
 
 if (!$connection) {
     die("Database connection failed: " . mysqli_connect_error());
@@ -21,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["username"] = $userName;
 
         if ($row["usertype"] == "user") {
-            header("Location: /vendormanagementsystem/user/home/backend/userhome.php");
+            header("Location: ../../user/home/backend/home.php");
         } elseif ($row["usertype"] == "admin") {
-            header("Location: /vendormanagementsystem/admin/home/backend/adminhome.php");
+            header("Location: ../../admin/home/backend/home.php");
         }
         exit;
     } else {
         $_SESSION["login_error"] = "Incorrect username or password.";
-        header("Location: /vendormanagementsystem/login/backend/login.php");
+        header("Location: login.php");
         exit;
     }
 }
