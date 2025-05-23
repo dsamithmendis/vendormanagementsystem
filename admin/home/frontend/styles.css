@@ -34,39 +34,6 @@ nav ul li a:hover {
     border-radius: 4px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    margin-bottom: 120px;
-}
-
-th,
-td {
-    padding: 12px 15px;
-    border: 1px solid #333;
-    text-align: center;
-}
-
-th {
-    background-color: #333;
-    color: white;
-    font-weight: bold;
-}
-
-td {
-    background-color: #f4f4f4;
-}
-
-tr:hover td {
-    background-color: #c8e6c9;
-}
-
-.no-records {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
 footer {
     background-color: #333;
     color: white;

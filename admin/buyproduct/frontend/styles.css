@@ -60,8 +60,7 @@ table {
     margin-bottom: 120px;
 }
 
-th,
-td {
+th, td {
     padding: 12px 15px;
     border: 1px solid #333;
     text-align: center;
@@ -86,12 +85,11 @@ tr:hover td {
 }
 
 .message {
-    background-color: #e2f0d9;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
     padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 4px;
+    font-weight: bold;
 }
 
 footer {

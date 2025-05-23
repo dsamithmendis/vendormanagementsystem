@@ -1,6 +1,6 @@
 <?php
-include '/vendormanagementsystem/connection/connect.php';
-include '/vendormanagementsystem/signup/index.html';
+include '../../connection/connect.php';
+include '../../signup/index.html';
 if (!$connection) {
     die("Database connection failed: " . mysqli_connect_error());
 }
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("ssss", $userName, $contactInformation, $emailAddress, $password);
 
         if ($stmt->execute()) {
-            echo "<script>alert('Signup successful!'); window.location.href='index.php';</script>";
+            echo "<script>alert('Signup successful!'); window.location.href='/vendormanagementsystem/login/backend/login.php';</script>";
         } else {
             echo "<script>alert('Signup failed.'); window.history.back();</script>";
         }

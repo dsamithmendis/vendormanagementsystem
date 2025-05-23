@@ -34,25 +34,6 @@ nav ul li a:hover {
     border-radius: 4px;
 }
 
-.btn {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-}
-
-.btn:hover {
-    opacity: 0.8;
-}
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -60,8 +41,7 @@ table {
     margin-bottom: 120px;
 }
 
-th,
-td {
+th, td {
     padding: 12px 15px;
     border: 1px solid #333;
     text-align: center;
@@ -83,15 +63,7 @@ tr:hover td {
 
 .no-records {
     margin-top: 20px;
-}
-
-.message {
-    background-color: #e2f0d9;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 4px;
+    font-weight: bold;
 }
 
 footer {

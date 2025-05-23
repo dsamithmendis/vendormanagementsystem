@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HISTORY | VENDOR MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="frontend/styles.css">
+</head>
+<body>
+<header>
+    <h1>VENDOR MANAGEMENT SYSTEM</h1>
+    <nav>
+        <ul>
+            <li><a href="/vendormanagementsystem/user/home/backend/home.php">HOME</a></li>
+            <li><a href="/vendormanagementsystem/user/cart/backend/cart.php">CART</a></li>
+            <li><a href="/vendormanagementsystem/user/buyproduct/backend/buyproduct.php">BUY PRODUCT</a></li>
+            <li><a href="/vendormanagementsystem/user/storeproduct/backend/storeproduct.php">STORE PRODUCT</a></li>
+            <li><a href="/vendormanagementsystem/logout.php">LOGOUT</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <?php if (!empty($orders)): ?>
+        <table>
+            <tr>
+                <th>ORDER ID</th>
+                <th>BUYER ID</th>
+                <th>SELLER ID</th>
+                <th>PRODUCT ID</th>
+                <th>PRICE (RS.)</th>
+                <th>ORDER DATE</th>
+            </tr>
+            <?php foreach ($orders as $order): ?>
+                <tr>
+                    <td><?= htmlspecialchars($order['PurchaseOrderID']) ?></td>
+                    <td><?= htmlspecialchars($order['BuyerID']) ?></td>
+                    <td><?= htmlspecialchars($order['SellerID']) ?></td>
+                    <td><?= htmlspecialchars($order['ProductID']) ?></td>
+                    <td><?= htmlspecialchars($order['product_price']) ?></td>
+                    <td><?= htmlspecialchars($order['order_date']) ?></td>
+                </tr>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <div class="no-records">No records found.</div>
+    <?php endif; ?>
+</main>
+<footer>
+    <p>© 2025 All Rights Reserved By Samith Mendis</p>
+</footer>
+</body>
+</html>

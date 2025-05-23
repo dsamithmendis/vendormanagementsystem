@@ -15,8 +15,7 @@ $result = $stmt->get_result();
 if ($result->num_rows === 1) {
     $row = $result->fetch_assoc();
     $_SESSION["usertype"] = $row["usertype"];
-} 
-else {
+} else {
     exit("User not found.");
 }
 

@@ -2,9 +2,9 @@
 ob_start();
 session_start();
 
-include '../../home/index.html';
-include '../../../connection/connect.php';
-include '../../../verify/verifyuser.php';
+include '/vendormanagementsystem/user/home/index.html';
+include '/vendormanagementsystem/connection/connect.php';
+include '/vendormanagementsystem/verify/verifyuser.php';
 
 if (!isset($_SESSION["username"])) {
     die("Unauthorized access.");
