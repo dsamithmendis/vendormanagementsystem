@@ -1,0 +1,21 @@
+.about-section {
+    background-color: transparent;
+    padding: 20px 15px;
+    margin: 20px auto 0 auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    font-size: 14px;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
