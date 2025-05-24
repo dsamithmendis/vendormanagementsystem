@@ -11,6 +11,7 @@ header {
   box-shadow: none;
   text-align: left;
   flex-wrap: nowrap;
+  margin-bottom: 10px;
 }
 
 .header-logo {
@@ -45,41 +46,13 @@ header {
   word-break: break-word;
 }
 
-.header-buttons {
-  display: flex;
-  gap: 15px;
-  flex-shrink: 0;
-  z-index: 20;
-}
-
-.btn {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 6px 14px;
-  font-size: 14px;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  white-space: nowrap;
-}
-
-.btn-primary,
-.btn-secondary {
-  background-color: rgba(90, 90, 90, 0.6);
-  color: #f8f8f8;
-}
-
-.btn-primary:hover,
-.btn-secondary:hover {
-  background-color: rgba(100, 100, 100, 0.8);
-}
-
 @media (max-width: 600px) {
   header {
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 10px;
+    padding: 15px 10px;
   }
 
   .header-wrapper {
@@ -96,16 +69,7 @@ header {
     margin-bottom: 5px;
   }
 
-  .header-buttons {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-    z-index: auto;
-  }
-
-  .btn {
-    flex: 1 1 auto;
-    min-width: 120px;
+  .logo {
+    width: 45px;
   }
 }

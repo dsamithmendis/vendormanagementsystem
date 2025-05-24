@@ -4,16 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SIGNUP | VENDOR MANAGEMENT SYSTEM</title>
-    <link rel="stylesheet" type="text/css" href="../frontend/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../body/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../header/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../footer/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../slider/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../btn/styles.css" />
+    <link rel="stylesheet" type="text/css" href="../../form/styles.css" />
   </head>
-
   <body>
+    <div class="slider" aria-hidden="true">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="../../images/slide01.png" alt="Slide 1" />
+        </div>
+        <div class="slide">
+          <img src="../../images/slide02.png" alt="Slide 2" />
+        </div>
+        <div class="slide">
+          <img src="../../images/slide03.png" alt="Slide 3" />
+        </div>
+      </div>
+    </div>
     <header>
-      <h1>VENDOR MANAGEMENT SYSTEM</h1>
+      <div class="header-logo">
+        <img
+          src="../../images/logo.png"
+          alt="Logo"
+          class="logo"
+          onclick="window.location.href='/vendormanagementsystem/index.html'"
+        />
+      </div>
+      <div class="header-wrapper">
+        <h1>VENDOR MANAGEMENT SYSTEM</h1>
+      </div>
+      <div class="header-btn">
+        <button
+          type="button"
+          class="btn btn-primary"
+          onclick="window.location.href='/vendormanagementsystem/login/backend/login.php'"
+        >
+          Log in
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="window.location.href='/vendormanagementsystem/signup/backend/signup.php'"
+        >
+          Sign up
+        </button>
+      </div>
     </header>
-
     <main>
-      <div class="container">
+      <div class="form-section">
         <h2>SIGNUP</h2>
         <form
           action="/vendormanagementsystem/signup/backend/signup.php"
@@ -26,7 +68,7 @@
               class="form-control"
               name="username"
               id="username"
-              placeholder="Enter Name"
+              placeholder="Enter username"
               required
             />
           </div>
@@ -60,23 +102,23 @@
               class="form-control"
               name="password"
               id="password"
-              placeholder="Enter Password"
+              placeholder="Enter password"
               maxlength="8"
               required
             />
           </div>
           <button
             type="submit"
-            class="btn btn-primary"
+            class="form-btn btn btn-primary"
             name="signup"
             id="signup"
           >
             Sign up
           </button>
-          <button type="reset" class="btn btn-danger">Reset</button>
+          <button type="reset" class="form-btn btn btn-danger">Reset</button>
           <button
             type="button"
-            class="btn btn-secondary"
+            class="form-btn btn btn-secondary"
             onclick="window.location.href='/vendormanagementsystem/index.html'"
           >
             Back
@@ -84,9 +126,42 @@
         </form>
       </div>
     </main>
-
     <footer>
-      <p>© 2025 All Rights Reserved By Samith Mendis</p>
+      <div class="footer-content">
+        <div class="footer-left"></div>
+        <p class="footer-text">© 2025 All Rights Reserved By Samith Mendis</p>
+        <div class="social-links">
+          <a href="https://github.com/dsamithmendis" target="_blank">
+            <img
+              src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg"
+              alt="GitHub"
+              width="30"
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/dsamithmendis" target="_blank">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+              alt="LinkedIn"
+              width="30"
+            />
+          </a>
+          <a href="https://www.facebook.com/dsamithmendis" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+              alt="Facebook"
+              width="30"
+            />
+          </a>
+          <a href="https://wa.me/94742229827" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+              alt="WhatsApp"
+              width="30"
+            />
+          </a>
+        </div>
+      </div>
     </footer>
+    <script src="../../slider/scripts.js"></script>
   </body>
 </html>

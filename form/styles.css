@@ -1,0 +1,70 @@
+.form-section {
+    background-color: transparent;
+    padding: 30px 45px;
+    margin: 50px auto 0 auto;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-section h2 {
+    text-align: center;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.form-control {
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.form-control:focus {
+    outline: 2px solid #aaa;
+    outline-offset: 2px;
+    background-color: #444;
+}
+
+@media (max-width: 480px) {
+    .form-section {
+        padding: 20px 15px;
+        margin: 30px auto 0 auto;
+        max-width: 90%;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .form-section h2 {
+        font-size: 18px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .form-control {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
