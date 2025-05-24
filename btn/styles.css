@@ -1,0 +1,71 @@
+.form-btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.header-btn {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  flex-shrink: 0;
+  z-index: 20;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 6px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  white-space: nowrap;
+  color: #f8f8f8;
+  min-width: 80px;
+  text-align: center;
+}
+
+.btn-primary,
+.btn-danger,
+.btn-secondary {
+  background-color: rgba(90, 90, 90, 0.6);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  background-color: rgba(211, 201, 201, 0.8);
+}
+
+.btn-danger:hover {
+  background-color: rgba(211, 59, 59, 0.8);
+}
+
+.btn:focus {
+  outline: 2px solid #aaa;
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 480px) {
+
+  .form-btn-container,
+  .header-btn {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .btn {
+    flex: 1 1 100%;
+    padding: 10px;
+    font-size: 16px;
+    min-width: auto;
+    border-radius: 12px;
+  }
+}

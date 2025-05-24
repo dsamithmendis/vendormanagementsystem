@@ -11,6 +11,7 @@ header {
   box-shadow: none;
   text-align: left;
   flex-wrap: nowrap;
+  margin-bottom: 10px;
 }
 
 .header-logo {
@@ -29,8 +30,7 @@ header {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-weight: 600;
-  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   white-space: nowrap;
   letter-spacing: 1px;
   text-align: center;
@@ -38,40 +38,12 @@ header {
   pointer-events: none;
 }
 
-.header-buttons {
-  display: flex;
-  gap: 15px;
-  flex-shrink: 0;
-  z-index: 20;
-}
-
-.btn {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 6px 14px;
-  font-size: 14px;
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  white-space: nowrap;
-}
-
-.btn-primary {
-  background-color: rgba(90, 90, 90, 0.6);
-  color: #f8f8f8;
-}
-
-.btn-primary:hover {
-  background-color: rgba(100, 100, 100, 0.8);
-}
-
-.btn-secondary {
-  background-color: rgba(90, 90, 90, 0.6);
-  color: #f8f8f8;
-}
-
-.btn-secondary:hover {
-  background-color: rgba(100, 100, 100, 0.8);
+.header-wrapper h1 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
 @media (max-width: 600px) {
@@ -80,6 +52,7 @@ header {
     align-items: center;
     text-align: center;
     gap: 10px;
+    padding: 15px 10px;
   }
 
   .header-wrapper {
@@ -87,7 +60,7 @@ header {
     transform: none;
     order: 2;
     white-space: normal;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     pointer-events: auto;
   }
 
@@ -96,16 +69,7 @@ header {
     margin-bottom: 5px;
   }
 
-  .header-buttons {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    gap: 10px;
-    z-index: auto;
-  }
-
-  .btn {
-    flex: 1 1 auto;
-    min-width: 120px;
+  .logo {
+    width: 45px;
   }
 }

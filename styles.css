@@ -1,21 +1,33 @@
 .about-section {
     background-color: transparent;
-    padding: 20px 15px;
-    margin: 20px auto 0 auto;
+    padding: 1.25rem 1rem;
+    margin: 1.25rem auto 0 auto;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 90%;
     max-width: 400px;
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .about-section h2 {
-    font-size: 22px;
+    font-size: 1.375rem;
     color: #ffffff;
-    margin-bottom: 10px;
+    margin-bottom: 0.625rem;
 }
 
 .about-section p {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #e0e0e0;
     line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+    .about-section h2 {
+        font-size: 1.125rem;
+    }
+
+    .about-section p {
+        font-size: 0.8125rem;
+    }
 }
