@@ -35,10 +35,14 @@
   background-color: rgba(90, 90, 90, 0.6);
 }
 
-.btn-primary:hover,
+.btn-primary:hover {
+  background-color: rgba(90, 98, 212, 0.863);
+}
+
 .btn-secondary:hover {
   background-color: rgba(211, 201, 201, 0.8);
 }
+
 
 .btn-danger:hover {
   background-color: rgba(211, 59, 59, 0.8);

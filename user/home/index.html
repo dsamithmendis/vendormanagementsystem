@@ -2,46 +2,171 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>HOME | VENDOR MANAGEMENT SYSTEM</title>
-    <link rel="stylesheet" type="text/css " href="../frontend/styles.css" />
+    <link rel="stylesheet" href="../../../body/styles.css" />
+    <link rel="stylesheet" href="../../../header/styles.css" />
+    <link rel="stylesheet" href="../../../footer/styles.css" />
+    <link rel="stylesheet" href="../../../slider/styles.css" />
+    <link rel="stylesheet" href="../../../btn/styles.css" />
+    <style>
+  nav#mainNav {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgba(40, 40, 40, 0.6);
+    color: #f0f0f0;
+    padding: 0; /* no padding to avoid gap */
+    width: 100%;
+    display: none; /* hidden initially */
+    margin: 0;
+  }
+
+  nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    padding: 5px 10px;
+    display: block;
+  }
+</style>
+
+
   </head>
   <body>
-    <header>
-      <h1>VENDOR MANAGEMENT SYSTEM</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="/vendormanagementsystem/user/cart/backend/cart.php"
-              >CART</a
-            >
-          </li>
-          <li>
-            <a
-              href="/vendormanagementsystem/user/buyproduct/backend/buyproduct.php"
-              >BUY PRODUCT</a
-            >
-          </li>
-          <li>
-            <a
-              href="/vendormanagementsystem/user/storeproduct/backend/storeproduct.php"
-              >STORE PRODUCT</a
-            >
-          </li>
-          <li>
-            <a href="/vendormanagementsystem/user/history/backend/history.php"
-              >HISTORY</a
-            >
-          </li>
-          <li><a href="/vendormanagementsystem/connection/logout.php">LOGOUT</a></li>
-        </ul>
-      </nav>
+    <!-- Slider -->
+    <div class="slider" aria-hidden="true">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="../../../images/slide01.png" alt="Slide 1" />
+        </div>
+        <div class="slide">
+          <img src="../../../images/slide02.png" alt="Slide 2" />
+        </div>
+        <div class="slide">
+          <img src="../../../images/slide03.png" alt="Slide 3" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header id="mainHeader">
+      <div class="header-logo">
+        <img
+          src="../../../images/logo.png"
+          alt="Vendor Management System Logo"
+          class="logo"
+          onclick="window.location.href='/vendormanagementsystem/index.html'"
+        />
+      </div>
+
+      <div class="header-wrapper">
+        <h1>VENDOR MANAGEMENT SYSTEM</h1>
+      </div>
+
+      <div class="header-btn">
+        <button type="button" class="btn btn-secondary" onclick="toggleMenu()">
+          Menu
+        </button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          onclick="window.location.href='/vendormanagementsystem/connection/logout.php'"
+        >
+          Logout
+        </button>
+      </div>
     </header>
 
-    <main></main>
+    <!-- Navigation directly after header -->
+    <nav id="mainNav" aria-label="Main Navigation">
+      <ul>
+        <li>
+          <a href="/vendormanagementsystem/user/cart/backend/cart.php">CART</a>
+        </li>
+        <li>
+          <a
+            href="/vendormanagementsystem/user/buyproduct/backend/buyproduct.php"
+            >BUY PRODUCT</a
+          >
+        </li>
+        <li>
+          <a
+            href="/vendormanagementsystem/user/storeproduct/backend/storeproduct.php"
+            >STORE PRODUCT</a
+          >
+        </li>
+        <li>
+          <a href="/vendormanagementsystem/user/history/backend/history.php"
+            >HISTORY</a
+          >
+        </li>
+        <li>
+          <a href="/vendormanagementsystem/connection/logout.php">LOGOUT</a>
+        </li>
+      </ul>
+    </nav>
 
+    <!-- Main -->
+    <main>
+      <h2>Welcome to the Vendor Management System</h2>
+      <p>Use the menu above to navigate the system.</p>
+    </main>
+
+    <!-- Footer -->
     <footer>
-      <p>© 2025 All Rights Reserved By Samith Mendis</p>
+      <div class="footer-content">
+        <div class="footer-left"></div>
+        <p class="footer-text">© 2024 All Rights Reserved By Samith Mendis</p>
+        <div class="social-links">
+          <a href="https://github.com/dsamithmendis" target="_blank">
+            <img
+              src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github.svg"
+              alt="GitHub"
+              width="30"
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/dsamithmendis" target="_blank">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+              alt="LinkedIn"
+              width="30"
+            />
+          </a>
+          <a href="https://www.facebook.com/dsamithmendis" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+              alt="Facebook"
+              width="30"
+            />
+          </a>
+          <a href="https://wa.me/94742229827" target="_blank">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+              alt="WhatsApp"
+              width="30"
+            />
+          </a>
+        </div>
+      </div>
     </footer>
+
+    <!-- Slider Script -->
+    <script src="../../../slider/scripts.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+      function toggleMenu() {
+        const nav = document.getElementById("mainNav");
+        nav.style.display = nav.style.display === "block" ? "none" : "block";
+      }
+    </script>
   </body>
 </html>
