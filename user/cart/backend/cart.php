@@ -1,6 +1,7 @@
 <?php
 ob_start();
 session_start();
+
 include '../../../connection/connect.php';
 include '../../../verify/verifyuser.php';
 
@@ -13,29 +14,32 @@ if (!isset($_SESSION["username"])) {
 }
 
 $username = $_SESSION["username"];
-$BuyerID = null;
-$message = '';
+$message = "";
 
 $stmt = $connection->prepare("SELECT VendorID FROM signup WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 $result = $stmt->get_result();
+$BuyerID = null;
 if ($row = $result->fetch_assoc()) {
     $BuyerID = $row['VendorID'];
 }
 $stmt->close();
 
-function removeProduct($connection, $ProductID, &$message)
+function removeProduct($connection, $ProductID, $BuyerID, &$message)
 {
-    $stmt = $connection->prepare("SELECT ProductID, product_name, product_price FROM purchase WHERE ProductID = ?");
-    $stmt->bind_param("i", $ProductID);
+    $stmt = $connection->prepare("SELECT ProductID, product_name, product_price FROM purchase WHERE ProductID = ? AND BuyerID = ?");
+    $stmt->bind_param("ii", $ProductID, $BuyerID);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($row = $result->fetch_assoc()) {
-        $stmt = $connection->prepare("DELETE FROM purchase WHERE ProductID = ?");
-        $stmt->bind_param("i", $ProductID);
+        $stmt->close();
+
+        $stmt = $connection->prepare("DELETE FROM purchase WHERE ProductID = ? AND BuyerID = ?");
+        $stmt->bind_param("ii", $ProductID, $BuyerID);
         $stmt->execute();
+        $stmt->close();
 
         $stmt = $connection->prepare("SELECT ProductID FROM products WHERE ProductID = ?");
         $stmt->bind_param("i", $ProductID);
@@ -43,41 +47,51 @@ function removeProduct($connection, $ProductID, &$message)
         $check_result = $stmt->get_result();
 
         if ($check_result->num_rows === 0) {
+            $stmt->close();
             $stmt = $connection->prepare("INSERT INTO products (ProductID, product_name, product_price) VALUES (?, ?, ?)");
             $stmt->bind_param("isd", $row['ProductID'], $row['product_name'], $row['product_price']);
             $stmt->execute();
         }
+        $stmt->close();
 
         $message = "Product removed successfully.";
     } else {
-        $message = "Product not found.";
+        $message = "Product not found or does not belong to you.";
     }
-
-    $stmt->close();
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (isset($_POST['removeok'])) {
-        removeProduct($connection, intval($_POST['removeok']), $message);
+        removeProduct($connection, intval($_POST['removeok']), $BuyerID, $message);
     }
 
     if (isset($_POST['order_date']) && !empty($_POST['order_date'])) {
         $order_date = $_POST['order_date'];
         $connection->begin_transaction();
         try {
-            $stmt = $connection->prepare("INSERT INTO history (PurchaseOrderID, BuyerID, SellerID, ProductID, product_price, order_date)
-                SELECT PurchaseOrderID, ?, SellerID, ProductID, product_price, ? FROM purchase");
-            $stmt->bind_param("is", $BuyerID, $order_date);
+            $stmt = $connection->prepare("SELECT SUM(product_price) AS total_amount FROM purchase WHERE BuyerID = ?");
+            $stmt->bind_param("i", $BuyerID);
             $stmt->execute();
-
-            $result = $connection->query("SELECT SUM(product_price) AS total_amount FROM purchase");
+            $result = $stmt->get_result();
             $total_amount = ($row = $result->fetch_assoc()) ? $row['total_amount'] : 0;
+            $stmt->close();
 
             $stmt = $connection->prepare("INSERT INTO orders (BuyerID, order_date, total_amount) VALUES (?, ?, ?)");
             $stmt->bind_param("isd", $BuyerID, $order_date, $total_amount);
             $stmt->execute();
+            $orderID = $connection->insert_id;
+            $stmt->close();
 
-            $connection->query("DELETE FROM purchase");
+            $stmt = $connection->prepare("INSERT INTO history (OrderID, PurchaseOrderID, BuyerID, SellerID, ProductID, product_price, order_date)
+                SELECT ?, PurchaseOrderID, ?, SellerID, ProductID, product_price, ? FROM purchase WHERE BuyerID = ?");
+            $stmt->bind_param("iisi", $orderID, $BuyerID, $order_date, $BuyerID);
+            $stmt->execute();
+            $stmt->close();
+
+            $stmt = $connection->prepare("DELETE FROM purchase WHERE BuyerID = ?");
+            $stmt->bind_param("i", $BuyerID);
+            $stmt->execute();
+
             $connection->commit();
             $message = "Order confirmed. Total: Rs. " . number_format($total_amount, 2);
         } catch (Exception $e) {
@@ -87,18 +101,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-$orderForm = <<<HTML
-<form method='POST' class='order-form'>
-    <label for='order_date'>Select Order Date:</label>
-    <input type='date' name='order_date' id='order_date' required>
-    <button type='submit' name='confirm' class='btn btn-primary'>Confirm</button>
-</form>
-HTML;
-
 $tableRows = '';
-$result = $connection->query("SELECT * FROM purchase");
+$stmt = $connection->prepare("SELECT * FROM purchase WHERE BuyerID = ?");
+$stmt->bind_param("i", $BuyerID);
+$stmt->execute();
+$result = $stmt->get_result();
+
 if ($result->num_rows > 0) {
-    $tableRows .= "<table><tr><th>PRODUCT ID</th><th>BUYER ID</th><th>SELLER ID</th><th>PRODUCT NAME</th><th>PRICE</th><th>ACTION</th></tr>";
+    $tableRows .= "<table>
+        <tr>
+            <th>PRODUCT ID</th>
+            <th>BUYER ID</th>
+            <th>SELLER ID</th>
+            <th>PRODUCT NAME</th>
+            <th>PRICE</th>
+            <th>ACTION</th>
+        </tr>";
     while ($row = $result->fetch_assoc()) {
         $pid = htmlspecialchars($row['ProductID']);
         $sid = htmlspecialchars($row['SellerID']);
@@ -121,13 +139,20 @@ if ($result->num_rows > 0) {
     }
     $tableRows .= "</table>";
 } else {
-    $tableRows = "<div class='no-records'>No records found.</div>";
+    $tableRows = "<div class='no-records' style='color:white; text-align:center;'>No records found.</div>";
+}
+$stmt->close();
+
+$template = file_get_contents("../index.html");
+$template = str_replace("%product_table%", $tableRows, $template);
+
+if ($message) {
+    $js_message = json_encode($message);
+    $template = str_replace("</body>", "<script>alert({$js_message});</script></body>", $template);
 }
 
-$page = file_get_contents('../index.html');
-$page = str_replace('<!--MESSAGE-->', $message ? "<div class='message'>{$message}</div>" : '', $page);
-$page = str_replace('<!--ORDER_FORM-->', $orderForm, $page);
-$page = str_replace('<!--PRODUCT_TABLE-->', $tableRows, $page);
+echo $template;
 
-echo $page;
+mysqli_close($connection);
+ob_end_flush();
 ?>
