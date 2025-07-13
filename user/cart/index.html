@@ -2,56 +2,94 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>CART | VENDOR MANAGEMENT SYSTEM</title>
-    <link rel="stylesheet" type="text/css" href="../frontend/styles.css" />
+    <link rel="stylesheet" href="../../../body/styles.css" />
+    <link rel="stylesheet" href="../../../header/styles.css" />
+    <link rel="stylesheet" href="../../../footer/styles.css" />
+    <link rel="stylesheet" href="../../../slider/styles.css" />
+    <link rel="stylesheet" href="../../../btn/styles.css" />
+    <link rel="stylesheet" href="../../../nav/styles.css" />
+    <link rel="stylesheet" href="../../cart/frontend/styles.css" />
+    <link rel="stylesheet" href="../../../no_record/styles.css" />
   </head>
   <body>
-    <header>
-      <h1>VENDOR MANAGEMENT SYSTEM</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="/vendormanagementsystem/user/home/backend/home.php"
-              >HOME</a
-            >
-          </li>
-          <li>
-            <a
-              href="/vendormanagementsystem/user/buyproduct/backend/buyproduct.php"
-              >BUY PRODUCT</a
-            >
-          </li>
-          <li>
-            <a
-              href="/vendormanagementsystem/user/storeproduct/backend/storeproduct.php"
-              >STORE PRODUCT</a
-            >
-          </li>
-          <li>
-            <a href="/vendormanagementsystem/user/history/backend/history.php"
-              >HISTORY</a
-            >
-          </li>
-          <li>
-            <a href="/vendormanagementsystem/connection/logout.php">LOGOUT</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <div class="message-box">
-        <!--MESSAGE-->
+    <div class="slider" aria-hidden="true">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="../../../images/slide01.png" alt="Slide 1" />
+        </div>
+        <div class="slide">
+          <img src="../../../images/slide02.png" alt="Slide 2" />
+        </div>
+        <div class="slide">
+          <img src="../../../images/slide03.png" alt="Slide 3" />
+        </div>
       </div>
-
-      <!--ORDER_FORM-->
-
-      <!--PRODUCT_TABLE-->
+    </div>
+    <header>
+      <div class="header-logo">
+        <img
+          src="../../../images/logo.png"
+          alt="Vendor Management System Logo"
+          class="logo"
+          onclick="window.location.href='/vendormanagementsystem/index.html'"
+        />
+      </div>
+      <div class="header-wrapper">
+        <h1>VENDOR MANAGEMENT SYSTEM</h1>
+      </div>
+      <div class="header-btn">
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="window.location.href='/vendormanagementsystem/connection/logout.php'"
+        >
+          Logout
+        </button>
+      </div>
+    </header>
+    <nav id="mainNav" aria-label="Main Navigation">
+      <ul>
+        <li>
+          <a href="/vendormanagementsystem/user/home/backend/home.php">HOME</a>
+        </li>
+        <li>
+          <a
+            href="/vendormanagementsystem/user/buyproduct/backend/buyproduct.php"
+            >BUY PRODUCT</a
+          >
+        </li>
+        <li>
+          <a
+            href="/vendormanagementsystem/user/storeproduct/backend/storeproduct.php"
+            >STORE PRODUCT</a
+          >
+        </li>
+        <li>
+          <a href="/vendormanagementsystem/user/history/backend/history.php"
+            >HISTORY</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <div class="table-wrapper">
+        <div class="table-scroll">%product_table%</div>
+      </div>
+      <form method="POST" class="container">
+        <label for="order_date">Select Order Date:</label>
+        <input type="date" name="order_date" id="order_date" required />
+        <button type="submit" name="confirm" class="btn btn-primary">
+          Confirm
+        </button>
+      </form>
     </main>
-
     <footer>
-      <p>© 2025 All Rights Reserved By Samith Mendis</p>
+      <div class="footer-content">
+        <p>© 2024 All Rights Reserved By Samith Mendis</p>
+      </div>
     </footer>
+    <script src="../../../slider/scripts.js"></script>
   </body>
 </html>

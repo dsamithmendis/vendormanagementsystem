@@ -105,7 +105,7 @@ if ($SellerID) {
                 <td>
                     <form action='/vendormanagementsystem/user/storeproduct/backend/storeproduct.php' method='POST'>
                         <input type='hidden' name='product_id' value='{$row['ProductID']}'>
-                        <button type='submit' class='btn btn-secondary' name='remove'>Remove</button>
+                        <button type='submit' class='btn btn-danger' name='remove'>Remove</button>
                     </form>
                 </td>
             </tr>";
@@ -117,8 +117,13 @@ if ($SellerID) {
 }
 
 $template = file_get_contents("../index.html");
-$template = str_replace("%message%", $message ? "<div class='message'>{$message}</div>" : "", $template);
 $template = str_replace("%product_table%", $table_html, $template);
+
+if ($message) {
+    $js_message = json_encode($message);
+    $template = str_replace("</body>", "<script>alert({$js_message});</script></body>", $template);
+}
+
 echo $template;
 
 mysqli_close($connection);

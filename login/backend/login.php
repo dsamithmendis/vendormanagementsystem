@@ -27,8 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         exit;
     } else {
-        $_SESSION["login_error"] = "Incorrect username or password.";
-        header("Location: login.php");
+        echo "<script>alert('Incorrect username or password.'); window.history.back();</script>";
         exit;
     }
 }
