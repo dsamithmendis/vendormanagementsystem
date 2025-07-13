@@ -1,104 +1,65 @@
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+.table-wrapper {
+    width: 550px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    background-color: rgba(40, 40, 40, 0.6);
+    overflow: hidden;
+    margin: 30px auto 40px auto;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 20px;
+.table-scroll {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    opacity: 0.8;
-    border-radius: 4px;
-}
-
-.btn {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-}
-
-.btn:hover {
-    opacity: 0.8;
+.table-scroll::-webkit-scrollbar {
+    display: none;
 }
 
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    margin-bottom: 120px;
+    border-collapse: separate; /* important for rounded corners */
+    border-spacing: 0;          /* removes spacing between cells */
+    background-color: rgba(40, 40, 40, 0.6);
+    color: #f0f0f0;
+    font-size: 0.95rem;
+    box-sizing: border-box;
 }
 
-th,
-td {
-    padding: 12px 15px;
-    border: 1px solid #333;
-    text-align: center;
+thead {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #f0f0f0;
 }
 
-th {
-    background-color: #333;
-    color: white;
-    font-weight: bold;
+table th,
+table td {
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-td {
-    background-color: #f4f4f4;
+/* Rounded corners for table */
+thead th:first-child {
+    border-top-left-radius: 12px;
+}
+thead th:last-child {
+    border-top-right-radius: 12px;
 }
 
-tr:hover td {
-    background-color: #c8e6c9;
+tbody tr:last-child td:first-child {
+    border-bottom-left-radius: 12px;
+}
+tbody tr:last-child td:last-child {
+    border-bottom-right-radius: 12px;
 }
 
-.no-records {
-    margin-top: 20px;
+tbody tr:hover {
+    background-color: rgba(60, 60, 60, 0.6);
 }
 
-.message {
-    background-color: #e2f0d9;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 4px;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+tbody tr:nth-child(even) {
+    background-color: rgba(50, 50, 50, 0.5);
 }

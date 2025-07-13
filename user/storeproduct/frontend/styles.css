@@ -1,151 +1,105 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-}
-
-header {
-    background-color: #1d1f21;
-    color: #ffffff;
-    padding: 15px 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 28px;
-}
-
-nav ul {
-    list-style-type: none;
-    margin: 10px 0 0;
-    padding: 0;
-    overflow: hidden;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-main {
-    padding: 20px;
-}
-
 .container {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 550px;
+    margin: 25px auto 30px auto;
+    padding: 25px 30px;
+    background-color: rgba(40, 40, 40, 0.6);
+    color: #f0f0f0;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-form h2 {
-    margin-top: 0;
-    color: #333;
+.container h2 {
+    text-align: center;
+    margin-bottom: 18px;
+    color: #f0f0f0;
+    font-size: 1.65rem;
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .form-group label {
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #f0f0f0;
 }
 
 .form-group input[type="text"] {
     width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
+    padding: 10px 14px;
+    font-size: 1rem;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
+    transition: border-color 0.3s ease-in-out;
+    box-sizing: border-box;
 }
 
-button.btn {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 10px;
-    font-weight: bold;
+.form-group input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
-.btn-primary {
-    background-color: #007bff;
-    color: white;
+.table-wrapper {
+    width: 550px;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    background-color: rgba(40, 40, 40, 0.6);
+    overflow: hidden;
+    margin: 30px auto 40px auto;
 }
 
-.btn-danger {
-    background-color: #dc3545;
-    color: white;
+.table-scroll {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
-.btn-secondary {
-    background-color: #6c757d;
-    color: white;
+.table-scroll::-webkit-scrollbar {
+    display: none;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
-    margin-top: 20px;
+    background-color: rgba(40, 40, 40, 0.6);
+    color: #f0f0f0;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+thead {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #f0f0f0;
 }
 
 table th,
 table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-table th {
-    background-color: #007bff;
-    color: white;
+tbody tr:hover {
+    background-color: rgba(60, 60, 60, 0.6);
 }
 
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
+tbody tr:nth-child(even) {
+    background-color: rgba(50, 50, 50, 0.5);
 }
 
-.no-records {
-    background-color: #fff3cd;
-    border: 1px solid #ffeeba;
-    color: #856404;
-    padding: 15px;
-    border-radius: 4px;
-    margin-top: 20px;
+.container+.container {
+    margin-top: 30px;
 }
 
-.message {
-    background-color: #e2f0d9;
-    color: #155724;
-    border: 1px solid #c3e6cb;
-    padding: 10px;
-    margin-bottom: 20px;
-    border-radius: 4px;
+.container+table {
+    margin-top: 30px;
 }
 
-footer {
-    background-color: #1d1f21;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+table {
+    margin-bottom: 0;
 }

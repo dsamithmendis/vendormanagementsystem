@@ -2,83 +2,136 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STORE PRODUCT</title>
-    <link rel="stylesheet" type="text/css" href="../frontend/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>STORE PRODUCT | VENDOR MANAGEMENT SYSTEM</title>
+    <link rel="stylesheet" href="../../../body/styles.css" />
+    <link rel="stylesheet" href="../../../header/styles.css" />
+    <link rel="stylesheet" href="../../../footer/styles.css" />
+    <link rel="stylesheet" href="../../../slider/styles.css" />
+    <link rel="stylesheet" href="../../../btn/styles.css" />
+    <link rel="stylesheet" href="../../../nav/styles.css" />
+    <link rel="stylesheet" href="../../storeproduct/frontend/styles.css" />
+    <link rel="stylesheet" href="../../../no_record/styles.css" />
   </head>
   <body>
+    <div class="slider" aria-hidden="true">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="../../../images/slide01.png" alt="Slide 1" />
+        </div>
+        <div class="slide">
+          <img src="../../../images/slide02.png" alt="Slide 2" />
+        </div>
+        <div class="slide">
+          <img src="../../../images/slide03.png" alt="Slide 3" />
+        </div>
+      </div>
+    </div>
+
     <header>
-      <h1>VENDOR MANAGEMENT SYSTEM</h1>
-      <nav>
-        <ul>
-          <li>
-            <a href="/vendormanagementsystem/user/home/backend/home.php"
-              >HOME</a
-            >
-          </li>
-          <li>
-            <a href="/vendormanagementsystem/user/cart/backend/cart.php"
-              >CART</a
-            >
-          </li>
-          <li>
-            <a
-              href="/vendormanagementsystem/user/buyproduct/backend/buyproduct.php"
-              >BUY PRODUCT</a
-            >
-          </li>
-          <li>
-            <a href="/vendormanagementsystem/user/history/backend/history.php"
-              >HISTORY</a
-            >
-          </li>
-          <li>
-            <a href="/vendormanagementsystem/connection/logout.php">LOGOUT</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="header-logo">
+        <img
+          src="../../../images/logo.png"
+          alt="Vendor Management System Logo"
+          class="logo"
+          onclick="window.location.href='/vendormanagementsystem/index.html'"
+        />
+      </div>
+      <div class="header-wrapper">
+        <h1>VENDOR MANAGEMENT SYSTEM</h1>
+      </div>
+      <div class="header-btn">
+        <button
+          type="button"
+          class="btn btn-danger"
+          onclick="window.location.href='/vendormanagementsystem/connection/logout.php'"
+        >
+          Logout
+        </button>
+      </div>
     </header>
 
+    <nav id="mainNav" aria-label="Main Navigation">
+      <ul>
+        <li>
+          <a href="/vendormanagementsystem/user/home/backend/home.php">HOME</a>
+        </li>
+        <li>
+          <a
+            href="/vendormanagementsystem/user/buyproduct/backend/buyproduct.php"
+            >BUY PRODUCT</a
+          >
+        </li>
+        <li>
+          <a href="/vendormanagementsystem/user/cart/backend/cart.php">CART</a>
+        </li>
+        <li>
+          <a href="/vendormanagementsystem/user/history/backend/history.php"
+            >HISTORY</a
+          >
+        </li>
+      </ul>
+    </nav>
     <main>
-      %message%
-
       <div class="container">
         <form method="POST">
           <h2>STORE</h2>
           <div class="form-group">
             <label>PRODUCT NAME</label>
-            <input type="text" name="product_name" required />
+            <input
+              type="text"
+              name="product_name"
+              required
+              placeholder="Enter product name"
+            />
           </div>
           <div class="form-group">
             <label>PRICE (RS.)</label>
-            <input type="text" name="product_price" required />
+            <input
+              type="text"
+              name="product_price"
+              required
+              placeholder="Enter product price"
+            />
           </div>
           <button class="btn btn-primary" name="save">Save</button>
           <button type="reset" class="btn btn-danger">Reset</button>
         </form>
       </div>
-
       <div class="container">
         <form method="POST">
           <h2>RE-STORE</h2>
           <div class="form-group">
             <label>PRODUCT ID</label>
-            <input type="text" name="ProductID" required />
+            <input
+              type="text"
+              name="ProductID"
+              required
+              placeholder="Enter product ID"
+            />
           </div>
           <div class="form-group">
             <label>PRICE (RS.)</label>
-            <input type="text" name="product_price" required />
+            <input
+              type="text"
+              name="product_price"
+              required
+              placeholder="Enter product price"
+            />
           </div>
           <button class="btn btn-primary" name="edit">Edit</button>
           <button type="reset" class="btn btn-danger">Reset</button>
         </form>
       </div>
-
-      %product_table%
+      <div class="table-wrapper">
+        <div class="table-scroll">%product_table%</div>
+      </div>
     </main>
-
     <footer>
-      <p>© 2025 All Rights Reserved By Samith Mendis</p>
+      <div class="footer-content">
+        <p>© 2024 All Rights Reserved By Samith Mendis</p>
+      </div>
     </footer>
+    <script src="../../../slider/scripts.js"></script>
   </body>
 </html>

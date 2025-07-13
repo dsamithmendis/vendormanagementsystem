@@ -13,6 +13,7 @@ if (!isset($_SESSION["username"])) {
     die("Unauthorized access.");
 }
 
+$username = $_SESSION["username"];
 $order_table = "";
 
 $query = "SELECT PurchaseOrderID, BuyerID, SellerID, ProductID, product_price, order_date FROM history";
