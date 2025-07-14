@@ -21,8 +21,8 @@
 
 table {
     width: 100%;
-    border-collapse: separate; /* important for rounded corners */
-    border-spacing: 0;          /* removes spacing between cells */
+    border-collapse: separate;
+    border-spacing: 0;
     background-color: rgba(40, 40, 40, 0.6);
     color: #f0f0f0;
     font-size: 0.95rem;
@@ -41,7 +41,6 @@ table td {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Rounded corners for table */
 thead th:first-child {
     border-top-left-radius: 12px;
 }
