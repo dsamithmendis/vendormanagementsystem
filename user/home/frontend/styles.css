@@ -1,0 +1,110 @@
+.profile-container {
+    max-width: 480px;
+    margin: 32px auto;
+    padding: 24px;
+    background-color: rgba(40, 40, 40, 0.6);
+    border-radius: 15px;
+    color: #f0f0f0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.profile-picture {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border: 3px solid #fff;
+}
+
+.profile-info h2 {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.profile-info p {
+    font-size: 14px;
+    margin: 6px 0;
+    color: #ccc;
+}
+
+.profile-actions {
+    margin-top: 24px;
+}
+
+#editProfileModal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#editProfileModal::-webkit-scrollbar {
+    display: none;
+}
+
+.modal-content {
+    max-width: 480px;
+    margin: 48px auto;
+    padding: 24px;
+    background-color: rgba(40, 40, 40, 0.9);
+    border-radius: 15px;
+    color: #f0f0f0;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    position: relative;
+    text-align: left;
+}
+
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.modal-content h3 {
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 14px;
+    transition: box-shadow 0.3s ease;
+}
+
+.modal-content input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #007bff;
+}
+
+#closeModal {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    user-select: none;
+}

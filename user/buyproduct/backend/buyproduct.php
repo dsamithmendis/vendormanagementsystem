@@ -91,7 +91,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 $template = file_get_contents("../index.html");
 $template = str_replace("%product_table%", $product_table, $template);
 
-if ($message) {
+if ($message && strpos($message, 'Error') !== false) {
     $js_message = json_encode($message);
     $template = str_replace("</body>", "<script>alert({$js_message});</script></body>", $template);
 }

@@ -5,17 +5,13 @@ session_start();
 include '../../../connection/connect.php';
 include '../../../verify/verifyuser.php';
 
-if (!$connection) {
-    die("Database connection failed: " . mysqli_connect_error());
-}
-
 if (!isset($_SESSION["username"])) {
     die("Unauthorized access.");
 }
 
 $username = $_SESSION["username"];
 
-$query = "SELECT username, usertype, contact_information, email_address, VendorID FROM signup WHERE username = ?";
+$query = "SELECT username, usertype, profile_image, contact_information, email_address, VendorID FROM signup WHERE username = ?";
 $stmt = $connection->prepare($query);
 $stmt->bind_param("s", $username);
 $stmt->execute();
@@ -35,6 +31,9 @@ $template = str_replace("{{email}}", htmlspecialchars($user['email_address']), $
 $template = str_replace("{{usertype}}", htmlspecialchars($user['usertype']), $template);
 $template = str_replace("{{contact}}", htmlspecialchars($user['contact_information']), $template);
 $template = str_replace("{{vendorid}}", htmlspecialchars($user['VendorID']), $template);
+
+$profileImagePath = $user['profile_image'] ?: 'images/default-profile.png';
+$template = str_replace("{{profile_image}}", htmlspecialchars($profileImagePath), $template);
 
 echo $template;
 
