@@ -16,8 +16,20 @@ if (!isset($_SESSION["username"])) {
 $username = $_SESSION["username"];
 $order_table = "";
 
-$query = "SELECT PurchaseOrderID, BuyerID, SellerID, ProductID, product_price, order_date FROM history";
+$stmtVendor = $connection->prepare("SELECT VendorID FROM signup WHERE username = ?");
+$stmtVendor->bind_param("s", $username);
+$stmtVendor->execute();
+$resultVendor = $stmtVendor->get_result();
+$rowVendor = $resultVendor->fetch_assoc();
+$vendorID = $rowVendor['VendorID'];
+$stmtVendor->close();
+
+$query = "SELECT PurchaseOrderID, OrderID, BuyerID, SellerID, ProductID, product_price, order_date 
+          FROM history 
+          WHERE BuyerID = ?";
+
 $stmt = $connection->prepare($query);
+$stmt->bind_param("i", $vendorID);
 
 if ($stmt) {
     $stmt->execute();
@@ -26,6 +38,7 @@ if ($stmt) {
     if ($result->num_rows > 0) {
         $order_table .= "<table>
             <tr>
+                <th>PURCHASE ID</th>
                 <th>ORDER ID</th>
                 <th>BUYER ID</th>
                 <th>SELLER ID</th>
@@ -36,6 +49,7 @@ if ($stmt) {
         while ($row = $result->fetch_assoc()) {
             $order_table .= "<tr>
                 <td>" . htmlspecialchars($row['PurchaseOrderID']) . "</td>
+                <td>" . htmlspecialchars($row['OrderID']) . "</td>
                 <td>" . htmlspecialchars($row['BuyerID']) . "</td>
                 <td>" . htmlspecialchars($row['SellerID']) . "</td>
                 <td>" . htmlspecialchars($row['ProductID']) . "</td>
