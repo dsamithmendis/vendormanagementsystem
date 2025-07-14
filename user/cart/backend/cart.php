@@ -25,7 +25,6 @@ if ($row = $result->fetch_assoc()) {
     $BuyerID = $row['VendorID'];
 }
 $stmt->close();
-
 function removeProduct($connection, $ProductID, $BuyerID, &$message)
 {
     $stmt = $connection->prepare("SELECT ProductID, product_name, product_price FROM purchase WHERE ProductID = ? AND BuyerID = ?");
@@ -146,7 +145,17 @@ $stmt->close();
 $template = file_get_contents("../index.html");
 $template = str_replace("%product_table%", $tableRows, $template);
 
-if ($message) {
+if (str_starts_with($message, "Order confirmed")) {
+    $template = str_replace("%order_message%", "<strong>$message</strong>", $template);
+} else {
+    $template = str_replace("%order_message%", "", $template);
+}
+
+if (
+    !empty($message) &&
+    !str_starts_with($message, "Product removed successfully.") &&
+    !str_starts_with($message, "Order confirmed")
+) {
     $js_message = json_encode($message);
     $template = str_replace("</body>", "<script>alert({$js_message});</script></body>", $template);
 }

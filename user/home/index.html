@@ -3,49 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>PROFILE | VENDOR MANAGEMENT SYSTEM</title>
+    <title>HOME | VENDOR MANAGEMENT SYSTEM</title>
     <link rel="stylesheet" href="../../../body/styles.css" />
     <link rel="stylesheet" href="../../../header/styles.css" />
     <link rel="stylesheet" href="../../../footer/styles.css" />
     <link rel="stylesheet" href="../../../slider/styles.css" />
     <link rel="stylesheet" href="../../../btn/styles.css" />
     <link rel="stylesheet" href="../../../nav/styles.css" />
-    <style>
-      .profile-container {
-        max-width: 600px;
-        margin: 40px auto;
-        background-color: rgba(40, 40, 40, 0.6);
-        border-radius: 15px;
-        padding: 30px;
-        color: #f0f0f0;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        text-align: center;
-      }
-      .profile-picture {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-bottom: 20px;
-        border: 3px solid #fff;
-      }
-      .profile-info h2 {
-        font-size: 26px;
-        margin: 10px 0;
-      }
-      .profile-info p {
-        font-size: 16px;
-        margin: 5px 0;
-        color: #ccc;
-      }
-      .profile-actions {
-        margin-top: 25px;
-      }
-      .profile-actions .btn {
-        margin: 10px;
-        padding: 10px 20px;
-      }
-    </style>
+    <link rel="stylesheet" href="../../home/frontend/styles.css" />
   </head>
   <body>
     <div class="slider" aria-hidden="true">
@@ -61,7 +26,6 @@
         </div>
       </div>
     </div>
-
     <header>
       <div class="header-logo">
         <img
@@ -84,7 +48,6 @@
         </button>
       </div>
     </header>
-
     <nav id="mainNav" aria-label="Main Navigation">
       <ul>
         <li>
@@ -109,13 +72,14 @@
         </li>
       </ul>
     </nav>
-
     <main>
       <div class="profile-container">
         <img
-          src="../../../images/default-profile.png"
+          src="../../../uploads/profile_images/{{username}}_profile.jpg"
           alt="Profile Picture"
           class="profile-picture"
+          width="150"
+          height="150"
         />
         <div class="profile-info">
           <h2>Welcome, {{username}}</h2>
@@ -126,17 +90,83 @@
         </div>
         <div class="profile-actions">
           <button class="btn btn-primary">Edit Profile</button>
-          <button class="btn btn-secondary">Settings</button>
         </div>
       </div>
     </main>
-
     <footer>
       <div class="footer-content">
         <p>© 2024 All Rights Reserved By Samith Mendis</p>
       </div>
     </footer>
-
     <script src="../../../slider/scripts.js"></script>
+    <div id="editProfileModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal">&times;</span>
+        <h2>Edit Profile</h2>
+        <form
+          method="POST"
+          action="edit_profile.php"
+          enctype="multipart/form-data"
+        >
+          <label>Profile Image:</label>
+          <input
+            type="file"
+            name="profile_image"
+            accept="image/*"
+            onchange="previewImage(event)"
+          />
+          <img
+            id="preview"
+            class="image-preview"
+            src="{{profile_image}}"
+            alt="Preview"
+            style="
+              width: 430px;
+              height: 430px;
+              object-fit: cover;
+              border-radius: 8px;
+            "
+          />
+          <label>Email:</label>
+          <input type="email" name="email" value="{{email}}" required />
+          <label>Contact:</label>
+          <input type="text" name="contact" value="{{contact}}" required />
+          <hr style="margin: 20px 0; border-color: #444" />
+          <h3>Change Password</h3>
+          <label>Current Password:</label>
+          <input type="password" name="current_password" />
+          <label>New Password:</label>
+          <input type="password" name="new_password" />
+          <label>Confirm New Password:</label>
+          <input type="password" name="confirm_password" />
+          <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("editProfileModal");
+        const openBtn = document.querySelector(".profile-actions .btn-primary");
+        const closeBtn = document.getElementById("closeModal");
+        openBtn.onclick = () => {
+          modal.style.display = "block";
+          document.body.classList.add("modal-open");
+        };
+        closeBtn.onclick = () => {
+          modal.style.display = "none";
+          document.body.classList.remove("modal-open");
+        };
+        window.onclick = (e) => {
+          if (e.target === modal) {
+            modal.style.display = "none";
+            document.body.classList.remove("modal-open");
+          }
+        };
+      });
+      function previewImage(event) {
+        const preview = document.getElementById("preview");
+        preview.src = URL.createObjectURL(event.target.files[0]);
+      }
+    </script>
   </body>
 </html>
