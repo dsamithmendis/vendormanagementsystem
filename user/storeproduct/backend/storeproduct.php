@@ -119,7 +119,7 @@ if ($SellerID) {
 $template = file_get_contents("../index.html");
 $template = str_replace("%product_table%", $table_html, $template);
 
-if ($message) {
+if ($message && stripos($message, "success") === false) {
     $js_message = json_encode($message);
     $template = str_replace("</body>", "<script>alert({$js_message});</script></body>", $template);
 }
