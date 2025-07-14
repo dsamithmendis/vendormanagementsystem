@@ -33,58 +33,12 @@ Version 2 introduces a **clear separation between frontend and backend**, improv
 
 ---
 
-## 📁 Project Structure
-
-```
-vendormanagementsystem/
-│
-├── backend/
-│   ├── connection/         # Database connection logic
-│   ├── verify/             # Access control (verifyuser.php)
-│   ├── vendor/             # Vendor-specific PHP logic
-│   ├── admin/              # Admin-side backend (future ready)
-│   └── uploads/            # Uploaded images
-│
-├── frontend/
-│   ├── body/               # Main UI components & styles
-│   ├── header/             # Header UI & nav
-│   ├── vendor/             # Vendor HTML templates
-│   ├── admin/              # Admin templates (optional/future)
-│   └── assets/             # CSS and images
-│
-├── index.html              # Entry point / landing page
-└── README.md
-```
-
----
-
 ## 🛠️ Technologies Used
 
 - **Backend:** PHP 8+, MySQL
 - **Frontend:** HTML5, CSS3, JavaScript
 - **Database:** MySQL (with sample schema)
 - **Hosting:** Local (WAMP/XAMPP recommended)
-
----
-
-## 🧪 Setup Instructions
-
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/dsamithmendis/vendormanagementsystem.git
-   ```
-
-2. **Set Up the Database**
-   - Create a MySQL database (e.g., `vendor_db`)
-   - Import the provided SQL schema (coming soon or manually created)
-
-3. **Configure Connection**
-   - Edit `backend/connection/connect.php` with your DB credentials
-
-4. **Run the App**
-   - Place the project in your web server's root (e.g., `htdocs/`)
-   - Start Apache & MySQL using XAMPP or WAMP
-   - Visit `http://localhost/vendormanagementsystem/frontend/vendor/index.html`
 
 ---
 
