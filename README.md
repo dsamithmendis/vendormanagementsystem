@@ -37,7 +37,7 @@ Version 0.3 introduces a **clear separation between frontend and backend**, impr
 
 - **Backend:** PHP 8+, MySQL
 - **Frontend:** HTML5, CSS3, JavaScript
-- **Database:** MySQL (with sample schema)
+- **Database:** phpmyadmin, MySQL
 - **Hosting:** Local (WAMP/XAMPP recommended)
 
 ---
