@@ -23,10 +23,6 @@ Version 0.3 introduces a **clear separation between frontend and backend**, impr
 - Track purchases and calculate totals
 - Display transaction summaries
 
-### 📂 Clean Project Structure
-- Separated `frontend/` and `backend/` directories
-- HTML templates use `{{placeholders}}` dynamically replaced by PHP
-
 ### ⚠️ Alert Handling
 - Real-time feedback for success and error messages
 - Simple UI alerts built with custom CSS
