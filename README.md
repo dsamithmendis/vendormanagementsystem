@@ -1,7 +1,7 @@
-# Vendor Management System v2
+# Vendor Management System v0.3
 
 A full-featured web-based Vendor Management System built with **PHP**, **MySQL**, **HTML**, **CSS**, and **JavaScript**.  
-Version 2 introduces a **clear separation between frontend and backend**, improved modularity, and better user experience.
+Version 0.3 introduces a **clear separation between frontend and backend**, improved modularity, and better user experience.
 
 ---
 
