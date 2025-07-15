@@ -42,27 +42,6 @@ Version 2 introduces a **clear separation between frontend and backend**, improv
 
 ---
 
-## 📸 Screenshots (Coming Soon)
-- Dashboard UI
-- Profile Edit Form
-- Product Listing
-- Success/Error Alerts
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!  
-Feel free to submit issues, suggest improvements, or fork the repo to extend functionality.
-
----
-
-## 📄 License
-
-This project is open-source and free to use for educational or personal use. Contact me for commercial licensing.
-
----
-
 ## 🙋‍♂️ Author
 
 **Samith Mendis**  
