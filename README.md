@@ -25,7 +25,6 @@ Version 0.3 introduces a **clear separation between frontend and backend**, impr
 
 ### ⚠️ Alert Handling
 - Real-time feedback for success and error messages
-- Simple UI alerts built with custom CSS
 
 ---
 
