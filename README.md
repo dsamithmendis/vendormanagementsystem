@@ -1,7 +1,7 @@
-# Vendor Management System v2
+# Vendor Management System v0.3
 
-A full-featured web-based Vendor Management System built with **PHP**, **MySQL**, **HTML**, **CSS**, and **JavaScript**.  
-Version 2 introduces a **clear separation between frontend and backend**, improved modularity, and better user experience.
+A full-featured web-based Vendor Management System built with **PHP**, **SQL**, **HTML**, **CSS**, and **JavaScript**.  
+Version 0.3 introduces a **clear separation between frontend and backend**, improved modularity, and better user experience.
 
 ---
 
@@ -35,36 +35,23 @@ Version 2 introduces a **clear separation between frontend and backend**, improv
 
 ## 🛠️ Technologies Used
 
-- **Backend:** PHP 8+, MySQL
+- **Backend:** PHP 8+, SQL
 - **Frontend:** HTML5, CSS3, JavaScript
-- **Database:** MySQL (with sample schema)
-- **Hosting:** Local (WAMP/XAMPP recommended)
+- **Database:** phpMyAdmin
+- **Hosting:** Local (WAMP recommended)
 
 ---
 
-## 📸 Screenshots (Coming Soon)
-- Dashboard UI
-- Profile Edit Form
-- Product Listing
-- Success/Error Alerts
+## 📜 License
+
+This software is licensed for individual or commercial use under a proprietary license. Redistribution, modification, or resale is **not permitted** without written authorization from the owner.
+
+See [LICENSE](LICENSE) for full terms.
 
 ---
 
-## 🤝 Contributing
+## 👨‍💻 Author
 
-Contributions are welcome!  
-Feel free to submit issues, suggest improvements, or fork the repo to extend functionality.
-
----
-
-## 📄 License
-
-This project is open-source and free to use for educational or personal use. Contact me for commercial licensing.
-
----
-
-## 🙋‍♂️ Author
-
-**Samith Mendis**  
-📫 [Connect on LinkedIn](https://linkedin.com/in/dsamithmendis)  
-🔗 [View Repository](https://github.com/dsamithmendis/vendormanagementsystem)
+**Samith Mendis**
+GitHub: [@dsamithmendis](https://github.com/dsamithmendis)  
+Email: [samithmendis.01@gmail.com]
