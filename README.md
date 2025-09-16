@@ -3,8 +3,6 @@
 A full-featured web-based Vendor Management System built with **PHP**, **SQL**, **HTML**, **CSS**, and **JavaScript**.  
 Version 0.3 introduces a **clear separation between frontend and backend**, improved modularity, and better user experience.
 
----
-
 ## 🚀 Features
 
 ### 🔐 Authentication
@@ -31,8 +29,6 @@ Version 0.3 introduces a **clear separation between frontend and backend**, impr
 - Real-time feedback for success and error messages
 - Simple UI alerts built with custom CSS
 
----
-
 ## 🛠️ Technologies Used
 
 - **Backend:** PHP 8+, SQL
@@ -40,15 +36,11 @@ Version 0.3 introduces a **clear separation between frontend and backend**, impr
 - **Database:** phpMyAdmin
 - **Hosting:** Local (WAMP recommended)
 
----
-
 ## 📜 License
 
 This software is licensed for individual or commercial use under a proprietary license. Redistribution, modification, or resale is **not permitted** without written authorization from the owner.
 
 See [LICENSE](LICENSE) for full terms.
-
----
 
 ## 👨‍💻 Author
 
