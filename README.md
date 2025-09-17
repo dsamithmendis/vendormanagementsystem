@@ -45,5 +45,9 @@ See [LICENSE](LICENSE) for full terms.
 ## 👨‍💻 Author
 
 **Samith Mendis**
+
+Design Report: [VMS-Design-Report](https://drive.google.com/file/d/1KLK_xAyxgwbqUODuVoAYePoHpM77I8Bw/view)
+
 GitHub: [@dsamithmendis](https://github.com/dsamithmendis)  
+
 Email: [samithmendis.01@gmail.com]
